@@ -10,7 +10,7 @@ const HomePage = () => {
     useEffect(() => {
         fetch("https://dattebayo-api.onrender.com/characters")
             .then(resp => resp.json())
-            .then(info => setData(info.characters)); // Ajuste para acceder al array `characters`
+            .then(info => setData(info.characters));
     }, []);
 
     return (

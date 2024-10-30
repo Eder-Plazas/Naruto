@@ -9,7 +9,7 @@ header {
 }
 
 #imgLogo {
-    height: 180px; /* Altura del logo */
+    height: 180px;
     width: 600px;
-    margin-top: 10px; /* Espaciado superior para separar del borde */
+    margin-top: 10px;
 }

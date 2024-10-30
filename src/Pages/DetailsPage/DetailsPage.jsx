@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { db } from '../../Firebase/Firebase'; // Asegúrate de que esta ruta sea correcta
+import { db } from '../../Firebase/Firebase'; 
 import { collection, addDoc } from "firebase/firestore"; 
 import "./DetailsPage.css"; 
 
