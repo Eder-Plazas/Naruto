@@ -1,23 +1,10 @@
-.character-card {
-    display: flex; /* Utiliza flexbox para la tarjeta */
-    border: 1px solid #ccc; /* Borde alrededor de cada tarjeta */
-    border-radius: 5px; /* Esquinas redondeadas */
-    margin: 10px; /* Espaciado entre tarjetas */
-    padding: 10px; /* Espaciado interno */
-    width: 250px; /* Ancho fijo para las tarjetas */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  }
-  
-  .character-image {
-    width: 80px; /* Ajusta el ancho de la imagen */
-    height: auto; /* Mantiene la relación de aspecto */
-    border-radius: 5px; /* Esquinas redondeadas para la imagen */
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
-  }
-  
-  .character-info {
-    display: flex; /* Utiliza flexbox para la información del personaje */
-    flex-direction: column; /* Coloca los elementos verticalmente */
-    justify-content: center; /* Centra verticalmente el contenido */
-  }
-  
+.card {
+  margin: 16px; /* Espacio entre tarjetas */
+  width: 300px; /* Ancho fijo para las tarjetas */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  transition: transform 0.2s; /* Transición suave para efectos al pasar el ratón */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}

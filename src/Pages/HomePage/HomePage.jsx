@@ -1,14 +1,34 @@
-import React from 'react'
+import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import "./HomePage.css";
+import CharacterCard from '../../Components/CharacterCard/CharacterCard';
 
 const HomePage = () => {
-  return (
-    <div>
-      <h1>SI SIRVE</h1>
-    </div>
-  )
-}
+    const [data, setData] = useState([]);
 
-export default HomePage
+
+    useEffect(() => {
+        fetch("https://dattebayo-api.onrender.com/characters")
+            .then(resp => resp.json())
+            .then(info => setData(info.characters)); // Ajuste para acceder al array `characters`
+    }, []);
+
+    return (
+        <div className="characters-home">
+            {data.map((element) => (
+                <div className="card-home" key={element.id}>
+                    <Link to={`/details/${element.id}`}>
+                        <CharacterCard name={element.name} img={element.images[0]} />
+                    </Link>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default HomePage;
+
+
 
 
 
