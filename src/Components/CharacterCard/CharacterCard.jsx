@@ -1,13 +1,17 @@
 import React from 'react';
 
-const CharacterCard = ({ name, img }) => {
+const CharacterCard = ({ name, img, description }) => {
   return (
     <div className="character-card">
       <img src={img} alt={name} />
-      <h3>{name}</h3>
+      <div className="card-info">
+        <h3>{name}</h3>
+        <p>{description}</p>
+      </div>
     </div>
   );
 };
 
 export default CharacterCard;
+
 

@@ -1,14 +1,43 @@
 .characters-home {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
     justify-content: center;
     padding: 20px;
-    margin-top: 250px; /* Ajusta este valor según la altura de tu header y navbar */
+    padding-top: 300px;
 }
 
-.card-home {
-    width: 200px;
-    text-align: center;
+.character-card {
+    display: flex;
+    align-items: center;
+    width: 800px;
+    background-color: burlywood;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.character-card img {
+    width: 150px;
+    height: 150px;
+    margin-right: 15px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card-info {
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #3399ff;
+}
+
+.card-info p {
+    margin: 5px 0;
+    font-size: 14px;
 }
 
