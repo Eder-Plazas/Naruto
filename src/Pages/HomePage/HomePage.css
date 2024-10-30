@@ -4,9 +4,11 @@
     gap: 20px;
     justify-content: center;
     padding: 20px;
+    margin-top: 250px; /* Ajusta este valor según la altura de tu header y navbar */
 }
 
 .card-home {
     width: 200px;
     text-align: center;
 }
+

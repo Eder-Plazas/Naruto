@@ -10,8 +10,8 @@ import Favorites from './Pages/Favorites/Favorites';
 const App = () => {
   return (
     <Router>
+              <Header />
       <div className='App'>
-        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/favoritos" element={<Favorites />} />
