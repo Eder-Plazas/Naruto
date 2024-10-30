@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import FavoriteIcon from '@mui/icons-material/Favorite'; // Importar el ícono de corazón
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { db } from '../../Firebase/Firebase'; // Asegúrate de que esta ruta sea correcta
+import { collection, addDoc } from "firebase/firestore"; 
 import "./DetailsPage.css"; 
 
 const DetailsPage = () => {
@@ -10,8 +12,25 @@ const DetailsPage = () => {
   useEffect(() => {
     fetch(`https://dattebayo-api.onrender.com/characters/${id}`)
       .then((response) => response.json())
-      .then((data) => setCharacter(data));
+      .then((data) => setCharacter(data))
+      .catch((error) => console.error("Error fetching character data:", error));
   }, [id]);
+
+  const handleFavoriteClick = async () => {
+    if (character) {
+      try {
+        await addDoc(collection(db, "favorites"), {
+          name: character.name,
+          debut: character.debut
+        });
+        alert(`${character.name} ha sido agregado a favoritos!`);
+      } catch (error) {
+        console.error("Error al agregar a favoritos: ", error);
+        alert(`Error al agregar a favoritos: ${error.message}`);
+      }
+    }
+  };
+  
 
   if (!character) {
     return <div>Loading...</div>;
@@ -21,7 +40,7 @@ const DetailsPage = () => {
     <div className="character-details">
       <img src={character.images[0]} alt={character.name} className="character-image" />
       <h1>{character.name}</h1>
-      <button className="favorite-button" onClick={() => alert('Added to favorites!')}>
+      <button className="favorite-button" onClick={handleFavoriteClick}>
         <FavoriteIcon color="error" />
       </button>
       <p><strong>Debut en Manga:</strong> {character.debut.manga}</p>
@@ -43,4 +62,6 @@ const DetailsPage = () => {
 };
 
 export default DetailsPage;
+
+
 
